@@ -12,7 +12,7 @@ public class Main {
 			System.out.println("-----MENU-----");
 			System.out.println("1.Tạo mới tài liệu");
 			System.out.println("2.Xóa tài liệu");
-			System.out.println("3. Hiển thị danh sách tài liệu");
+			System.out.println("3.Hiển thị danh sách tài liệu");
 			System.out.println("4.Tìm kiếm theo loại");
 			System.out.println("Nhập vào lựa chọn:");
 			luachon = Integer.parseInt(scanner.nextLine());
@@ -28,12 +28,18 @@ public class Main {
 			break;
 		case 2:
 			System.out.println("Xóa tài liệu");
+			System.out.println("Nhập mã tài liệu muốn xóa: ");
+			String MatlDel = scanner.nextLine();
+			qltv.deleteByID(MatlDel);
 			break;
 		case 3:
 			qltv.hienThi();
 			break;
 		case 4:
 			System.out.println("Tìm kiếm");
+			System.out.println("Nhập mã tài liệu muốn xóa: ");
+			String searchNXB = scanner.nextLine();
+			qltv.searchByName(searchNXB);
 			break;
 			}
 		} while(luachon != 0);

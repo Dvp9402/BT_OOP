@@ -55,14 +55,24 @@ public class QuanLyThuVien {
 		}
 		return tl;
 	}
-	/*public void xoaTaiLieu(String maTaiLieu) {
-		for (int i = 0; i < tls.length; i++) {
-			if (tls.get(i).maTl.equals(maTaiLieu)) {
-				tls.remove(i);
-				System.out.println("Da xoa tai lieu co ma " + maTaiLieu);
-				return;
+	public void deleteByID(String name) {
+		TaiLieu[] newtl = new TaiLieu[tls.length - 1];
+		for (int i = 0, j = 0; i < tls.length - 1; i++, j++) {
+			if (!tls[i].getMaTl().equals(name)) {
+				newtl[i] = tls[j];
+			} else {
+				j++;
+				newtl[i] = tls[j];
 			}
 		}
-		System.out.println("Khong tim thay tai lieu co ma" + maTaiLieu);
-	}*/
+		tls = newtl;
+		INDEX--;
+	}
+	public void searchByName(String name) {
+		for (TaiLieu tl : tls) {
+			if (tl.getTenNXB().contains(name)) {
+				System.out.println(tl.toString());
+			}
+		}
+	}
 }
